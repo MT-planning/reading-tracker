@@ -75,20 +75,17 @@
   height: 52px;
   padding: 0;
   border: none;
-  border-radius: 9999px;
-  background: var(--primary);
-  color: var(--on-primary);
+  /* アイコンの角丸（256 に対して 50）に合わせる */
+  border-radius: 10px;
+  background: transparent;
   box-shadow: var(--elev-3);
   cursor: pointer;
   pointer-events: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition: transform 0.15s ease, filter 0.15s ease;
 }
 
 .rt-launcher:hover {
-  filter: brightness(1.08);
+  filter: brightness(1.2);
 }
 
 .rt-launcher:active {
@@ -96,13 +93,8 @@
 }
 
 .rt-launcher svg {
-  width: 26px;
-  height: 26px;
-}
-
-.rt-launcher[aria-expanded="true"] {
-  background: var(--surface-high);
-  color: var(--on-surface);
+  width: 100%;
+  height: 100%;
 }
 
 .pos-bottom-right .rt-launcher { right: var(--offset); bottom: var(--offset); }
@@ -567,7 +559,7 @@
   justify-content: center;
   width: 100%;
   min-height: 38px;
-  margin-top: 10px;
+  margin-top: 10px !important;
   padding: 8px 16px;
   border: none;
   border-radius: 9999px;

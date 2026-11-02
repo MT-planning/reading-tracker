@@ -4,3 +4,4 @@ node_modules/
 *.tgz
 CLAUDE.md
 *.code-workspace
+.playwright-mcp/
