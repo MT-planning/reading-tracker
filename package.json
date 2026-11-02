@@ -15,6 +15,13 @@
   "license": "MIT",
   "author": "MT-planning, Ltd.",
   "homepage": "https://readingtracker.studio.site/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MT-planning/reading-tracker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MT-planning/reading-tracker/issues"
+  },
   "type": "module",
   "main": "./dist/reading-tracker.esm.js",
   "module": "./dist/reading-tracker.esm.js",
