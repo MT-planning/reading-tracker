@@ -2,7 +2,7 @@
 
 ウェブページに**読字ガイド**を重ねて表示する JavaScript ライブラリです。読んでいる行のまわりだけを帯状に残し、それ以外をマスクで覆います。帯はマウスや指の位置に合わせて動きます。
 
-Chrome 拡張機能「[リーディングトラッカー](https://readingtracker.studio.site/)」と同じ機能を、**サイト運営者が自分のサイトに組み込めるようにしたもの**です。訪問者は拡張機能を入れなくても使えます。
+Chrome 拡張機能「[リーディングトラッカー](https://reading-tracker.app/)」と同じ機能を、**サイト運営者が自分のサイトに組み込めるようにしたもの**です。訪問者は拡張機能を入れなくても使えます。
 
 > **English:** A drop-in reading guide for websites. It dims the page except for a band around the line being read, and the band follows the pointer or finger. Add one `<script>` tag to get a floating settings button. The UI is available in Japanese and English. MIT licensed.
 
@@ -16,7 +16,7 @@ Chrome 拡張機能「[リーディングトラッカー](https://readingtracker
 - 対応ブラウザでは、**インストール済みフォントの一覧**から選べます（UD フォントをおすすめとして先頭に表示）
 - 設定はブラウザ内（localStorage）に保存されます。同じタブで別のページへ移動しても、ガイドは表示されたままです
 - UI は Shadow DOM の中に描画するので、サイトの CSS と干渉しません
-- 外部ライブラリには依存していません。ファイルサイズは約 38KB（gzip 圧縮時は約 12KB）です
+- 外部ライブラリには依存していません。ファイルサイズは約 40KB（gzip 圧縮時は約 13KB）です
 
 ## 使い方
 
