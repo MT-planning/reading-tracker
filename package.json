@@ -1,0 +1,48 @@
+{
+  "name": "@mt-planning/reading-tracker",
+  "version": "0.1.0",
+  "description": "A reading guide overlay for web pages: masks the page and leaves a reading band that follows the pointer.",
+  "keywords": [
+    "reading",
+    "reading-guide",
+    "reading-ruler",
+    "accessibility",
+    "a11y",
+    "dyslexia",
+    "overlay",
+    "vertical-writing"
+  ],
+  "license": "MIT",
+  "author": "MT-planning, Ltd.",
+  "homepage": "https://readingtracker.studio.site/",
+  "type": "module",
+  "main": "./dist/reading-tracker.esm.js",
+  "module": "./dist/reading-tracker.esm.js",
+  "types": "./types/index.d.ts",
+  "unpkg": "./dist/reading-tracker.min.js",
+  "jsdelivr": "./dist/reading-tracker.min.js",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/reading-tracker.esm.js"
+    },
+    "./browser": "./dist/reading-tracker.min.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

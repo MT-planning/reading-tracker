@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reading Tracker デモ</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Sans", Meiryo, sans-serif;
+      line-height: 1.8;
+      color: #222;
+      background: #fafaf7;
+    }
+    header, main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 24px 16px;
+    }
+    header { border-bottom: 1px solid #ddd; }
+    h1 { font-size: 1.6rem; margin: 0 0 8px; }
+    h2 { font-size: 1.25rem; margin-top: 2em; }
+    code { background: #eee; padding: 1px 6px; border-radius: 4px; }
+    .api { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .api button { padding: 6px 12px; border: 1px solid #999; border-radius: 6px; background: #fff; cursor: pointer; }
+    .tate {
+      writing-mode: vertical-rl;
+      box-sizing: border-box;
+      max-width: 100%;
+      height: 22em;
+      overflow-x: auto;
+      padding: 16px;
+      background: #fff;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Reading Tracker デモ</h1>
+    <p>右下のボタンから設定パネルを開き、「ガイドを表示」を押してください。<code>Alt + Shift + G</code> でも表示／終了できます。</p>
+    <div class="api">
+      <button type="button" onclick="ReadingTracker.toggle()">toggle()</button>
+      <button type="button" onclick="ReadingTracker.toggleFitScreen()">toggleFitScreen()</button>
+      <button type="button" onclick="ReadingTracker.update({ verticalWriting: !ReadingTracker.getSettings().verticalWriting })">縦書き切り替え</button>
+      <button type="button" onclick="ReadingTracker.openPanel()">openPanel()</button>
+      <button type="button" onclick="ReadingTracker.reset()">reset()</button>
+    </div>
+  </header>
+
+  <main>
+    <h2>読む帯について</h2>
+    <p>画面全体を薄いマスクで覆い、いま読んでいる行のまわりだけを帯状に見えるようにします。帯はマウスや指の位置に合わせて上下に動くので、長い文章でも読んでいる場所を見失いにくくなります。</p>
+    <p>帯の高さや色、マスクの濃さは設定パネルで調整できます。調整した内容はこのブラウザに保存され、次にページを開いたときにも引き継がれます。</p>
+    <p>同じタブで別のページへ移動した場合、ガイドを表示したままにしておくと、移動先のページでも自動的にガイドが表示されます。ガイドを終了すると、その後は引き継がれません。</p>
+
+    <h2>文字サイズ・行間・フォント</h2>
+    <p>ガイドを表示しているあいだは、ページの文字サイズや行間を大きくしたり、読みやすいフォントに変えたりできます。ガイドを終了すると元の表示に戻ります。</p>
+    <p>サイトによってはレイアウトが崩れることがあります。その場合は標準の 1x に戻してください。サイト運営者は <code>contentSelector</code> オプションで、適用する範囲を本文だけに限定できます。</p>
+    <p>対応しているブラウザでは、パソコンにインストールされているフォントの一覧から選ぶこともできます。名前に「UD」を含むフォントは、おすすめとして先頭に表示されます。</p>
+
+    <h2>縦書きの文章</h2>
+    <p>組み方向を「縦書き」にすると、帯が左右方向に追従します。</p>
+    <div class="tate">
+      <p>縦書きの文章では、行は右から左へと進みます。読む帯も縦長になり、マウスを左右に動かすと、それに合わせて帯が移動します。</p>
+      <p>小説や随筆など、縦書きで組まれたページを読むときに使ってみてください。帯の幅は、設定パネルの「ガイドの幅」で調整できます。</p>
+      <p>ガイドを画面いっぱいに広げるボタンを押すと、マスクが消えて帯の色だけが全体にかかります。色付きの下敷きのように使えます。</p>
+    </div>
+
+    <h2>長い文章のサンプル</h2>
+    <p>ここから先は、スクロールしながら帯の動きを確かめるためのサンプルです。</p>
+    <p>朝の駅前は、通勤や通学の人たちで少しずつにぎやかになっていきます。パン屋の店先からは焼きたての香りが流れ、信号待ちの人たちの足もとを、風に吹かれた落ち葉が転がっていきます。</p>
+    <p>図書館の窓ぎわの席は、午前中がいちばん明るく、静かです。ページをめくる音と、ときどき聞こえる鉛筆の音だけが、広い部屋の中に小さく響いています。</p>
+    <p>長い文章を読んでいると、いつのまにか同じ行を二度読んでいたり、次の行の頭を見失ったりすることがあります。読む場所をはっきりさせるだけで、文章はずっと追いやすくなります。</p>
+    <p>夕方になると、川沿いの道を散歩する人が増えてきます。水面に映る空の色は、橙から紫へとゆっくり変わり、街灯がひとつ、またひとつと灯りはじめます。</p>
+    <p>読み終えたら、右上の「ガイドを終了」ボタンか、Esc キーでガイドを閉じてください。</p>
+  </main>
+
+  <script src="../dist/reading-tracker.js" data-auto-init data-storage-key="reading-tracker-demo"></script>
+</body>
+</html>
