@@ -40,7 +40,7 @@ export interface ReadingTrackerOptions {
   contentSelector?: string;
   /** UI の言語。"auto" は <html lang> から判定。既定 "auto" */
   lang?: "auto" | "ja" | "en";
-  /** UI 文言の上書き */
+  /** UI 文言の上書き（プレーンテキスト。HTML はエスケープされる） */
   messages?: Record<string, string>;
   /** サイトとしての初期設定（利用者が保存した設定が優先される） */
   settings?: Partial<ReadingTrackerSettings>;

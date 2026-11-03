@@ -25,14 +25,14 @@ Chrome 拡張機能「[リーディングトラッカー](https://reading-tracke
 `</body>` の直前に次の1行を追加します。
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@mt-planning/reading-tracker@0.1.0/dist/reading-tracker.min.js" data-auto-init></script>
+<script src="https://cdn.jsdelivr.net/npm/@mt-planning/reading-tracker@0.1.1/dist/reading-tracker.min.js" data-auto-init></script>
 ```
 
 オプションは `data-*` 属性で指定できます。
 
 ```html
 <script
-  src="https://cdn.jsdelivr.net/npm/@mt-planning/reading-tracker@0.1.0/dist/reading-tracker.min.js"
+  src="https://cdn.jsdelivr.net/npm/@mt-planning/reading-tracker@0.1.1/dist/reading-tracker.min.js"
   data-auto-init
   data-position="bottom-left"
   data-content-selector="article"
@@ -78,7 +78,7 @@ SSR 環境でも、読み込みの時点ではエラーになりません。`ini
 | `contentSelector` | `data-content-selector` | `"body"` | 行間・フォントを適用する範囲です。本文だけに限定すると、レイアウトが崩れにくくなります（例：`"article, .entry-content"`） |
 | `lang` | `data-lang` | `"auto"` | UI の言語。`"auto"` のときは `<html lang>` から判定します。`ja` / `en` |
 | `settings` | `data-settings`（JSON） | — | サイトとしての初期設定です。訪問者が保存した設定のほうが優先されます |
-| `messages` | — | — | UI の文言を上書きします（[src/i18n.js](src/i18n.js) のキーを指定） |
+| `messages` | — | — | UI の文言を上書きします（[src/i18n.js](src/i18n.js) のキーを指定）。文言はプレーンテキストとして扱われ、HTML は使えません |
 | `zIndex` | `data-z-index` | `2147483646` | オーバーレイの z-index です |
 
 ### 設定項目（`settings` / `update()`）

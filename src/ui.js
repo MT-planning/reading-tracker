@@ -62,6 +62,8 @@ export class Ui {
     this.c = controller;
     this.opts = opts;
     this.t = opts.messages;
+    // innerHTML に埋め込む用（文言は利用側から上書きでき、翻訳などに HTML が混ざる場合があるため）
+    this.tHtml = Object.fromEntries(Object.entries(opts.messages).map(([k, v]) => [k, escapeHtml(v)]));
     this.host = null;
     this.root = null;
     this.fonts = null;
@@ -69,7 +71,7 @@ export class Ui {
   }
 
   mount() {
-    const t = this.t;
+    const t = this.tHtml;
     const pos = POSITIONS.includes(this.opts.position) ? this.opts.position : "bottom-right";
     const host = document.createElement("div");
     host.setAttribute(HOST_ATTR, "ui");
@@ -318,7 +320,8 @@ export class Ui {
   }
 
   async showFontList() {
-    const { el, t } = this;
+    const { el } = this;
+    const t = this.tHtml;
     if (!el.fonts) return;
     el.fonts.hidden = false;
 

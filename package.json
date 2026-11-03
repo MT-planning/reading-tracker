@@ -1,6 +1,6 @@
 {
   "name": "@mt-planning/reading-tracker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A reading guide overlay for web pages: masks the page and leaves a reading band that follows the pointer.",
   "keywords": [
     "reading",

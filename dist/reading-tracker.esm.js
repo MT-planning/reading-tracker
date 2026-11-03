@@ -1,4 +1,4 @@
-/*! @mt-planning/reading-tracker v0.1.0 | MIT License | (c) MT-planning, Ltd. */
+/*! @mt-planning/reading-tracker v0.1.1 | MIT License | (c) MT-planning, Ltd. */
 
 // src/settings.js
 var DEFAULT_SETTINGS = Object.freeze({
@@ -405,13 +405,14 @@ var Ui = class {
     this.c = controller;
     this.opts = opts;
     this.t = opts.messages;
+    this.tHtml = Object.fromEntries(Object.entries(opts.messages).map(([k, v]) => [k, escapeHtml(v)]));
     this.host = null;
     this.root = null;
     this.fonts = null;
     this.open = false;
   }
   mount() {
-    const t = this.t;
+    const t = this.tHtml;
     const pos = POSITIONS.includes(this.opts.position) ? this.opts.position : "bottom-right";
     const host = document.createElement("div");
     host.setAttribute(HOST_ATTR, "ui");
@@ -639,7 +640,8 @@ var Ui = class {
     this.markSelectedFont(s.pageFontFamily);
   }
   async showFontList() {
-    const { el, t } = this;
+    const { el } = this;
+    const t = this.tHtml;
     if (!el.fonts) return;
     el.fonts.hidden = false;
     if (!this.fonts) {
@@ -788,7 +790,7 @@ function getMessages(lang, overrides) {
 }
 
 // src/index.js
-var VERSION = "0.1.0";
+var VERSION = "0.1.1";
 var DEFAULT_OPTIONS = Object.freeze({
   launcher: true,
   position: "bottom-right",
