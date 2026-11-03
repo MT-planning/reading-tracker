@@ -130,7 +130,7 @@ const off = ReadingTracker.on("start", () => { /* ... */ });
 
 ## 対応ブラウザ
 
-Chrome / Edge / Firefox / Safari の最新版（PC・スマホ）を対象としています。現時点で動作を確認しているのは Chromium（PC・スマホ幅）だけです。
+Chrome / Edge / Firefox / Safari の最新版（PC・スマホ）を対象としています。現時点で動作を確認しているのは Chrome・Edge・Firefox です。Safari はまだ確認していません。
 
 - インストール済みフォントの一覧は、Chromium 系ブラウザのデスクトップ版で、かつ HTTPS のページでのみ使えます。それ以外の環境では、フォント名を直接入力します
 - 別ドメインの iframe（動画の埋め込みなど）の中の文字には、文字サイズ・行間・フォントの変更は適用されません
